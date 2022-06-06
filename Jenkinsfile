@@ -1,3 +1,4 @@
+@Library('pipeline-library')
 pipeline {
    agent any
    options {
