@@ -12,6 +12,7 @@ pipeline {
             script {
                
                 sh 'git clone https://github.com/rat9615/simple-nodejs-app.git'
+                print("Hello World")
                rtBuildInfo (
                     captureEnv: true, 
                     buildName: "test_jfrog", 
