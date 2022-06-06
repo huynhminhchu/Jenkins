@@ -1,9 +1,9 @@
 def call(Object[] args){
-    def build_name = args[0].build_name 
-    build_name += env.BRANCH_NAME ? "-${env.BRANCH_NAME}" : ''
+    def build_number = args[0].build_number
+    build_number += env.BRANCH_NAME ? "-${env.BRANCH_NAME}" : ''
     rtPublishBuildInfo(
         serverId: "test-artifactory",
-        buildName: build_name,
-        buildNumber: args[0].build_number
+        buildName: args[0].build_name,
+        buildNumber: build_number
     )
 }
