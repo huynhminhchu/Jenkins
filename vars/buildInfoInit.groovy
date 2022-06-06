@@ -4,7 +4,7 @@ def call(Object[] args){
     build_name += env.BRANCH_NAME ? "-${env.BRANCH_NAME}" : ''
     rtBuildInfo (
         captureEnv: true,
-        buildName: args[0].build_name,
+        buildName: build_name,
         buildNumber: args[0].build_number
     )
 }
