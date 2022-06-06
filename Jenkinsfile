@@ -12,6 +12,7 @@ pipeline {
             script {
                
                 sh 'git clone https://github.com/rat9615/simple-nodejs-app.git'
+               sh 'env | sort'
                 print("This is branch fixissue_123")
                rtBuildInfo (
                     captureEnv: true, 
