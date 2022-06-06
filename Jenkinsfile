@@ -14,12 +14,7 @@ pipeline {
                 sh 'git clone https://github.com/rat9615/simple-nodejs-app.git'
                sh 'env | sort'
                 print("This is branch fixissue_123")
-               rtBuildInfo (
-                    captureEnv: true, 
-                    buildName: "test_jfrog_multibranch", 
-                    buildNumber: "${BUILD_NUMBER}",
-                    startDate: new Date(currentBuild.startTimeInMillis)
-                )
+               buildInfoInit(build_name: "test_jfrog_multibranch", build_number: "${BUILD_NUMBER}")
                 dir("simple-nodejs-app") {
                    rtNpmDeployer (
                       id: 'npm-deployer',
@@ -39,11 +34,8 @@ pipeline {
    }
    post {
        always{
-         rtPublishBuildInfo (
-      serverId: 'test-artifactory',
-      buildName: "test_jfrog_multibranch-${env.BRANCH_NAME}", 
-      buildNumber: "${BUILD_NUMBER}",
-   )}
+          buildInfoPublish(build_name: "test_jfrog_multibranch", build_number: "${BUILD_NUMBER}")
+         }
       cleanup {
          print 'Cleaning up workspace directory...'
          cleanWs deleteDirs: true
