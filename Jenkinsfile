@@ -14,7 +14,7 @@ pipeline {
                 sh 'git clone https://github.com/rat9615/simple-nodejs-app.git'
                rtBuildInfo (
                     captureEnv: true, 
-                    buildName: "test_jfrog", 
+                    buildName: "test_jfrog_multibranch", 
                     buildNumber: "${BUILD_NUMBER}",
                     startDate: new Date(currentBuild.startTimeInMillis)
                 )
@@ -39,7 +39,7 @@ pipeline {
        always{
          rtPublishBuildInfo (
       serverId: 'test-artifactory',
-      buildName: "test_jfrog", 
+      buildName: "test_jfrog_multibranch", 
       buildNumber: "${BUILD_NUMBER}",
    )}
       cleanup {
