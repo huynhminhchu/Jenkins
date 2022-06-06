@@ -39,7 +39,7 @@ pipeline {
        always{
          rtPublishBuildInfo (
       serverId: 'test-artifactory',
-      buildName: "test_jfrog_multibranch", 
+      buildName: "test_jfrog_multibranch-${env.BRANCH_NAME}", 
       buildNumber: "${BUILD_NUMBER}",
    )}
       cleanup {
