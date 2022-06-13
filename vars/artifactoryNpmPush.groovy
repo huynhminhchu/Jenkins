@@ -20,7 +20,7 @@ def call(Object[] args) {
       }"""
       print "File spec: \n$file_spec"
       rtUpload(
-         serverId: 'artifactory.menloinfra.com',
+         serverId: 'test-artifactory',
          spec: file_spec,
          failNoOp: true
       )
