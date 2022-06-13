@@ -4,7 +4,7 @@ def call(Object[] args) {
 
    def npm_files = sh(returnStdout: true, script: "find ./ -maxdepth 1  -name '*.tgz'")
    if (!npm_files) {
-      sh(returnStdout: false, script: "find ./ -maxdepth 1  -name '*.tgz'")
+      sh(returnStdout: false, script: "npm pack")
       npm_files = sh(returnStdout: true, script: "find ./ -maxdepth 1  -name '*.tgz'")
    }
    def npm_list = npm_files.split()
