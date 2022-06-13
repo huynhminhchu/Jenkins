@@ -3,6 +3,10 @@ def call(Object[] args) {
    String pkg_repo = args[0].packageRepo ?: 'default-npm-local'
 
    def npm_files = sh(returnStdout: true, script: "find ./ -maxdepth 1  -name '*.tgz'")
+   if (!npm_files) {
+      sh(returnStdout: false, script: "find ./ -maxdepth 1  -name '*.tgz'")
+      npm_files = sh(returnStdout: true, script: "find ./ -maxdepth 1  -name '*.tgz'")
+   }
    def npm_list = npm_files.split()
 
    npm_list.each { file -> 
