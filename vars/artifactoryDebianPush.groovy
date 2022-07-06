@@ -2,7 +2,7 @@ def call(Object[] args) {
    def build_name   = ''
    def build_number = ''
    
-   def is_pr = (env.BRANCH_NAME) ? env.BRANCH_NAME.matches("PR-(.*)") : False
+   def is_pr = (env.BRANCH_NAME) ? env.BRANCH_NAME.matches("PR-(.*)") : false
 
    if (args.size() > 0) {
       switch (args[0].getClass()) {
