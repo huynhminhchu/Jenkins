@@ -11,7 +11,7 @@ def call(Object[] args){
     def build_info_props = ""
     build_info_props += is_pr  ? "deb.retention_days=7"  : ''
     rtSetProps (
-      serverId: test-artifactory,
+      serverId: "test-artifactory",
       spec: "{\"files\":[{\"pattern\":\"${build_info_path}\",\"sortBy\":[\"created\"],\"sortOrder\":\"desc\",\"limit\":1}]}",
       props: build_info_props,
       failNoOp: true
